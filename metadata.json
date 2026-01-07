@@ -1,0 +1,8 @@
+{
+  "name": "Conoce tu mundo - Pasión Geográfica",
+  "description": "Exploración interactiva de continentes y países para apasionados de la geografía.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
