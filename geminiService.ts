@@ -1,5 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
-import { BIO_CONTEXT } from "../constants";
+import { BIO_CONTEXT } from "./constants";
 
 export class GeminiService {
   async askDaniel(question: string) {
