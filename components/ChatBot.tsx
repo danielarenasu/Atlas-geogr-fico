@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Message } from '../types';
-import { geminiService } from '../services/geminiService';
+import { geminiService } from '../geminiService';
 
 const RobotsAnim: React.FC = () => (
   <div className="flex items-end gap-1 mb-2 mr-3 pointer-events-none drop-shadow-xl scale-90 md:scale-100 origin-bottom-right">
