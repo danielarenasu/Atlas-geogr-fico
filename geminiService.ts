@@ -4,12 +4,8 @@ import { BIO_CONTEXT } from "../constants";
 export class GeminiService {
   async askDaniel(question: string) {
     try {
-      const apiKey = process.env.API_KEY;
-      if (!apiKey) {
-        return "Error: No se ha configurado la API_KEY en el entorno.";
-      }
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
       
-      const ai = new GoogleGenAI({ apiKey });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: question,
@@ -19,13 +15,10 @@ export class GeminiService {
         },
       });
 
-      return response.text || "Lo siento, no tengo una respuesta clara para eso.";
+      return response.text || "Lo siento, no pude encontrar esa información en mis mapas.";
     } catch (error: any) {
       console.error("Error en GeminiService:", error);
-      if (error.message?.includes("entity was not found")) {
-        return "Error de configuración de la API. Verifica tu clave de Google AI Studio.";
-      }
-      return "¡Ups! No pude conectar con el asistente. Revisa la consola para más detalles.";
+      return "¡Tierra a la vista! Pero tenemos un pequeño problema de conexión con el asistente. ¿Podrías intentar preguntarme de nuevo?";
     }
   }
 }
